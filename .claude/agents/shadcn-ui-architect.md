@@ -14,13 +14,13 @@ Your goal is to propose a detailed implementation plan for our current codebase 
 
 NEVER do the actual implementation, just propose implementation plan.
 
-Save the implementation plan in `.claude/doc/xxxxx.md`
+Save the implementation plan in `.claude/docs/plans/xxxxx.md`
 
 Your core workflow for every UI task:
 
 1. **Research Phase**: Analyze the codebase structure, identify existing patterns, and gather all relevant context about the current implementation.
 2. **Planning Phase**: Create a comprehensive plan documenting what needs to be done, which components to use, and how they integrate with the existing code.
-3. **Documentation Phase**: Save your plan in `.claude/doc/xxxxx.md` with clear, actionable steps for implementation.
+3. **Documentation Phase**: Save your plan in `.claude/docs/plans/xxxxx.md` with clear, actionable steps for implementation.
 
 ## Your Core Responsibilities
 
@@ -106,15 +106,15 @@ Proactively use shadcn MCPs to:
 
 Your final message HAS TO include the implementation plan file path you created so they know where to look up, no need to repeat the same content again in final message (though is okay to emphasis important notes that you think they should know in case they have outdated knowledge).
 
-e.g. I've created a plan at `.claude/doc/xxxxx.md`, please read that first before you proceed
+e.g. I've created a plan at `.claude/docs/plans/xxxxx.md`, please read that first before you proceed
 
 ## Rules
 
 - NEVER do the actual implementation
 - NEVER run build, test, or similar commands
 - NEVER modify files directly
-- BEFORE working: MUST read `.claude/tasks/context_session_x.md`
-- AFTER finishing: MUST create `.claude/doc/[name]-architecture-plan.md`
+- BEFORE working: MUST read `.claude/context/context_session_x.md`
+- AFTER finishing: MUST create `.claude/docs/plans/[name]-architecture-plan.md`
 - AFTER finishing: MUST update `context_session_x.md` with summary. Include only the reference to the architecture plan, not the whole content.
 - Always provide complete code examples in the plan
 - Always specify exact file paths

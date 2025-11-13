@@ -55,7 +55,7 @@ Usuario → Agente General (Claude Code principal)
 El agente general crea/actualiza un archivo de contexto:
 
 ```
-.claude/tasks/context_session_x.md
+.claude/context/context_session_x.md
 ```
 
 **Contenido del contexto:**
@@ -94,7 +94,7 @@ Agente General → Agente Especializado A → Agente General → Agente Especial
 Cuando una tarea depende de otra:
 ```
 "Necesito implementar autenticación con Supabase.
-Contexto: .claude/tasks/context_session_3.md"
+Contexto: .claude/context/context_session_3.md"
 ```
 
 #### Delegación paralela (tareas independientes) ⚡
@@ -118,7 +118,7 @@ Agente General ──┤
 1. UI del dashboard con shadcn (shadcn-ui-architect)
 2. API de datos con Supabase (supabase-expert)
 
-Contexto: .claude/tasks/context_session_7.md
+Contexto: .claude/context/context_session_7.md
 
 Ejecutar ambos agentes EN PARALELO"
 ```
@@ -132,7 +132,7 @@ Ejecutar ambos agentes EN PARALELO"
 **Proceso del agente especializado:**
 
 #### Fase 1: Investigación
-1. Lee `.claude/tasks/context_session_x.md` para obtener contexto completo
+1. Lee `.claude/context/context_session_x.md` para obtener contexto completo
 2. Analiza el codebase actual
 3. Revisa documentación actualizada (vía MCP)
 4. Identifica patrones existentes
@@ -146,7 +146,7 @@ Ejecutar ambos agentes EN PARALELO"
 5. Incluye **notas sobre conocimiento desactualizado**
 
 #### Fase 3: Documentación
-1. Crea plan detallado en `.claude/doc/[nombre-descriptivo].md`
+1. Crea plan detallado en `.claude/docs/plans/[nombre-descriptivo].md`
 2. Estructura el plan de forma accionable
 3. Incluye ejemplos de código
 4. Documenta dependencias necesarias
@@ -156,7 +156,7 @@ Ejecutar ambos agentes EN PARALELO"
 **Formato de salida obligatorio:**
 
 ```
-I've created a plan at `.claude/doc/[nombre].md`,
+I've created a plan at `.claude/docs/plans/[nombre].md`,
 please read that first before you proceed.
 
 Important notes:
@@ -171,7 +171,7 @@ Important notes:
 
 ```
 Agente General:
-  1. Lee .claude/doc/[nombre].md completo
+  1. Lee .claude/docs/plans/[nombre].md completo
   2. Ejecuta implementación paso a paso
   3. Actualiza context_session_x.md con resultados
 ```
@@ -191,19 +191,19 @@ Los agentes especializados **DEBEN** cumplir estas reglas:
 ### 2. SIEMPRE leer contexto antes
 ```
 Antes de cualquier trabajo:
-  → Leer .claude/tasks/context_session_x.md
+  → Leer .claude/context/context_session_x.md
 ```
 
 ### 3. SIEMPRE crear plan después
 ```
 Después de investigación:
-  → Crear .claude/doc/[nombre-descriptivo].md
+  → Crear .claude/docs/plans/[nombre-descriptivo].md
 ```
 
 ### 4. SIEMPRE actualizar contexto
 ```
 Al finalizar:
-  → Actualizar .claude/tasks/context_session_x.md
+  → Actualizar .claude/context/context_session_x.md
   → Agregar resumen de la investigación
   → Documentar decisiones tomadas
 ```
@@ -266,7 +266,7 @@ Tu objetivo es proponer un plan detallado de implementación que incluya:
 
 NUNCA hagas la implementación real, solo propón el plan.
 
-Guarda el plan en `.claude/doc/xxxxx.md`
+Guarda el plan en `.claude/docs/plans/xxxxx.md`
 
 ## Workflow
 
@@ -283,7 +283,7 @@ Guarda el plan en `.claude/doc/xxxxx.md`
 
 Tu mensaje final DEBE incluir la ruta del archivo creado:
 
-"I've created a plan at `.claude/doc/xxxxx.md`,
+"I've created a plan at `.claude/docs/plans/xxxxx.md`,
 please read that first before you proceed.
 
 Important notes:
@@ -296,8 +296,8 @@ NO repitas el contenido completo del plan en el mensaje.
 
 - NUNCA hagas la implementación actual
 - NUNCA ejecutes build, dev, o comandos similares
-- ANTES de trabajar: DEBE leer `.claude/tasks/context_session_x.md`
-- DESPUÉS de terminar: DEBE crear `.claude/doc/xxxxx.md`
+- ANTES de trabajar: DEBE leer `.claude/context/context_session_x.md`
+- DESPUÉS de terminar: DEBE crear `.claude/docs/plans/xxxxx.md`
 - DESPUÉS de terminar: DEBE actualizar context_session_x.md
 - NO delegues a otros sub-agentes
 - Tú eres el experto, tú haces toda la investigación
@@ -348,7 +348,7 @@ Agentes:
 - [agente-a]: [descripción tarea A]
 - [agente-b]: [descripción tarea B]
 
-Contexto: .claude/tasks/context_session_x.md"
+Contexto: .claude/context/context_session_x.md"
 ```
 
 **Ejemplo real:**
@@ -359,7 +359,7 @@ Agentes:
 - shadcn-ui-architect: Diseñar componentes del dashboard
 - supabase-expert: Diseñar esquema de base de datos y queries
 
-Contexto: .claude/tasks/context_session_5.md"
+Contexto: .claude/context/context_session_5.md"
 ```
 
 ### Ventajas de la paralelización
@@ -383,8 +383,8 @@ Contexto: .claude/tasks/context_session_5.md"
    └─→ Agente B investiga (aspecto 2)
    ↓
 5. Ambos agentes retornan sus planes
-   ├─→ .claude/doc/plan-a.md
-   └─→ .claude/doc/plan-b.md
+   ├─→ .claude/docs/plans/plan-a.md
+   └─→ .claude/docs/plans/plan-b.md
    ↓
 6. Agente general lee AMBOS planes
    ↓
@@ -400,7 +400,7 @@ y una UI moderna con shadcn"
 ```
 
 #### Paso 1: Contexto
-`.claude/tasks/context_session_8.md`:
+`.claude/context/context_session_8.md`:
 ```markdown
 # Sesión 8: sistema de chat con IA
 
@@ -424,11 +424,11 @@ Agente general lanza EN PARALELO:
 
 1. shadcn-ui-architect:
    "Diseña UI de chat con mensajes, input, y streaming.
-   Contexto: .claude/tasks/context_session_8.md"
+   Contexto: .claude/context/context_session_8.md"
 
 2. vercel-ai-sdk-expert:
    "Diseña integración con Vercel AI SDK para streaming.
-   Contexto: .claude/tasks/context_session_8.md"
+   Contexto: .claude/context/context_session_8.md"
 ```
 
 #### Paso 3: Ambos agentes trabajan simultáneamente
@@ -442,12 +442,12 @@ shadcn-ui-architect:              vercel-ai-sdk-expert:
 
 #### Paso 4: Resultados
 ```
-Plan A: .claude/doc/chat-ui-plan.md
+Plan A: .claude/docs/plans/chat-ui-plan.md
 - Componentes: Card, ScrollArea, Input, Button
 - Layout responsivo
 - Estados de loading
 
-Plan B: .claude/doc/chat-ai-integration-plan.md
+Plan B: .claude/docs/plans/chat-ai-integration-plan.md
 - useChat() hook de Vercel AI SDK
 - Streaming con Server Actions
 - Manejo de errores
@@ -512,7 +512,7 @@ usando shadcn/ui y datos de Supabase"
 ```
 
 ### Paso 1: Crear contexto
-Agente general crea `.claude/tasks/context_session_7.md`:
+Agente general crea `.claude/context/context_session_7.md`:
 
 ```markdown
 # Sesión 7: Dashboard con datos de Supabase
@@ -541,14 +541,14 @@ Agente general lanza simultáneamente:
 ```
 "Necesito un plan para implementar un dashboard con gráficos.
 Los datos vendrán de Supabase.
-Contexto: .claude/tasks/context_session_7.md"
+Contexto: .claude/context/context_session_7.md"
 ```
 
 **supabase-expert:**
 ```
 "Necesito un plan para integrar datos real-time de Supabase.
 El UI mostrará tablas y gráficos.
-Contexto: .claude/tasks/context_session_7.md"
+Contexto: .claude/context/context_session_7.md"
 ```
 
 ### Paso 3: Ambos agentes trabajan simultáneamente ⚡
@@ -558,20 +558,20 @@ Contexto: .claude/tasks/context_session_7.md"
 2. 🔍 Analiza estructura del proyecto
 3. 📚 Consulta documentación shadcn/ui reciente (MCP)
 4. 🎨 Identifica componentes: Card, Table, Chart
-5. 📝 Crea `.claude/doc/dashboard-ui-plan.md`
+5. 📝 Crea `.claude/docs/plans/dashboard-ui-plan.md`
 
 **supabase-expert** (en paralelo):
 1. ✅ Lee context_session_7.md
 2. 🔍 Analiza schema de Supabase actual
 3. 📚 Consulta documentación Supabase reciente (MCP)
 4. 🔄 Investiga real-time subscriptions
-5. 📝 Crea `.claude/doc/supabase-integration-plan.md`
+5. 📝 Crea `.claude/docs/plans/supabase-integration-plan.md`
 
 ### Paso 4: Ambos planes retornados
 
 **Plan UI:**
 ```
-I've created a plan at `.claude/doc/dashboard-ui-plan.md`,
+I've created a plan at `.claude/docs/plans/dashboard-ui-plan.md`,
 please read that first before you proceed.
 
 Important notes:
@@ -582,7 +582,7 @@ Important notes:
 
 **Plan Supabase:**
 ```
-I've created a plan at `.claude/doc/supabase-integration-plan.md`,
+I've created a plan at `.claude/docs/plans/supabase-integration-plan.md`,
 please read that first before you proceed.
 
 Important notes:
@@ -666,7 +666,7 @@ Agente general:
 - Comparte objetivos de negocio
 
 ✅ **Revisa los planes**
-- Lee los archivos en `.claude/doc/`
+- Lee los archivos en `.claude/docs/plans/`
 - Verifica que el plan cumpla tus necesidades
 - Pide cambios ANTES de la implementación
 
@@ -699,9 +699,9 @@ Agente general:
 **Causa**: El agente no retornó la ruta correctamente
 
 **Solución**:
-1. Revisa los archivos recientes en `.claude/doc/`
+1. Revisa los archivos recientes en `.claude/docs/plans/`
 2. Verifica que el agente tenga Output format definido
-3. Busca archivos modificados recientemente: `ls -lt .claude/doc/`
+3. Busca archivos modificados recientemente: `ls -lt .claude/docs/plans/`
 
 ### ❌ "El contexto se perdió entre sesiones"
 

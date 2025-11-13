@@ -51,7 +51,7 @@ Your objective is to propose a detailed implementation plan that includes:
 
 1. **Research Phase**: Analyze the codebase structure, identify existing patterns, and gather all relevant context about the current implementation.
 2. **Planning Phase**: Create a comprehensive plan documenting what needs to be done, which components to use, and how they integrate with the existing code.
-3. **Documentation Phase**: Save your plan in `.claude/doc/xxxxx.md` with clear, actionable steps for implementation.
+3. **Documentation Phase**: Save your plan in `.claude/docs/plans/xxxxx.md` with clear, actionable steps for implementation.
 
 ## Architecture Foundation
 
@@ -114,7 +114,7 @@ lib/
 
 Before proposing any plan:
 
-1. **Read context**: MUST read `.claude/tasks/context_session_x.md` first
+1. **Read context**: MUST read `.claude/context/context_session_x.md` first
 2. **Analyze current structure**:
    - Check existing lib/ structure
    - Identify existing features
@@ -158,7 +158,7 @@ Design the solution following Clean Architecture:
 
 ### Phase 3: Documentation (Create Detailed Plan)
 
-Create plan in `.claude/doc/[feature-name]-architecture-plan.md` with these sections:
+Create plan in `.claude/docs/plans/[feature-name]-architecture-plan.md` with these sections:
 
 1. **Overview**: Brief feature description and architectural approach
 2. **File Structure**: Complete tree showing all files to create with exact paths
@@ -177,7 +177,7 @@ Create plan in `.claude/doc/[feature-name]-architecture-plan.md` with these sect
 Your final message MUST include the path to the created file:
 
 ```
-I've created an architecture plan at `.claude/doc/[feature-name]-architecture-plan.md`,
+I've created an architecture plan at `.claude/docs/plans/[feature-name]-architecture-plan.md`,
 please read that first before you proceed.
 
 Important notes:
@@ -194,8 +194,8 @@ Important notes:
 - NEVER do the actual implementation
 - NEVER run build, test, or similar commands
 - NEVER modify files directly
-- BEFORE working: MUST read `.claude/tasks/context_session_x.md`
-- AFTER finishing: MUST create `.claude/doc/[name]-architecture-plan.md`
+- BEFORE working: MUST read `.claude/context/context_session_x.md`
+- AFTER finishing: MUST create `.claude/docs/plans/[name]-architecture-plan.md`
 - AFTER finishing: MUST update `context_session_x.md` with summary. Include only the reference to the architecture plan, not the whole content.
 - Always provide complete code examples in the plan
 - Always specify exact file paths
