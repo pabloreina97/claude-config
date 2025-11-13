@@ -158,132 +158,19 @@ Design the solution following Clean Architecture:
 
 ### Phase 3: Documentation (Create Detailed Plan)
 
-Create plan in `.claude/doc/[feature-name]-architecture-plan.md` with:
+Create plan in `.claude/doc/[feature-name]-architecture-plan.md` with these sections:
 
-```markdown
-# [Feature Name] Architecture Plan
-
-## Overview
-Brief description of the feature and architectural approach
-
-## File Structure
-```
-lib/
-├── features/
-│   └── [feature_name]/
-│       ├── data/
-│       │   ├── datasources/
-│       │   │   └── [name]_remote_datasource.dart
-│       │   ├── models/
-│       │   │   └── [name]_model.dart
-│       │   └── repositories/
-│       │       └── [name]_repository_impl.dart
-│       ├── domain/
-│       │   ├── entities/
-│       │   │   └── [name].dart
-│       │   ├── repositories/
-│       │   │   └── [name]_repository.dart
-│       │   └── usecases/
-│       │       └── [action]_[name].dart
-│       └── presentation/
-│           ├── providers/
-│           │   └── [name]_provider.dart
-│           ├── widgets/
-│           │   └── [name]_widget.dart
-│           └── pages/
-│               └── [name]_page.dart
-```
-
-## Dependencies
-```yaml
-dependencies:
-  flutter_riverpod: ^2.4.0
-  go_router: ^12.0.0
-  dio: ^5.4.0
-  dartz: ^0.10.1
-  # ... other dependencies
-```
-
-## Implementation Details
-
-### 1. Domain Layer
-
-#### Entity: lib/features/[feature]/domain/entities/[name].dart
-[Provide complete code example]
-
-#### Repository Interface: lib/features/[feature]/domain/repositories/[name]_repository.dart
-[Provide complete code example]
-
-#### Use Case: lib/features/[feature]/domain/usecases/[action]_[name].dart
-[Provide complete code example]
-
-### 2. Data Layer
-
-#### Model: lib/features/[feature]/data/models/[name]_model.dart
-[Provide complete code example]
-
-#### Datasource: lib/features/[feature]/data/datasources/[name]_remote_datasource.dart
-[Provide complete code example]
-
-#### Repository Implementation: lib/features/[feature]/data/repositories/[name]_repository_impl.dart
-[Provide complete code example]
-
-### 3. Presentation Layer
-
-#### Providers: lib/features/[feature]/presentation/providers/[name]_provider.dart
-[Provide complete code example with dependency injection chain]
-
-#### Widget: lib/features/[feature]/presentation/widgets/[name]_widget.dart
-[Provide complete code example]
-
-#### Page: lib/features/[feature]/presentation/pages/[name]_page.dart
-[Provide complete code example]
-
-### 4. Integration
-
-#### Router: lib/core/config/router.dart
-[Show how to add routes]
-
-#### Environment: lib/core/config/env.dart
-[Show any new environment variables needed]
-
-## Architectural Decisions
-
-### Decision 1: [Title]
-**Context**: ...
-**Decision**: ...
-**Rationale**: ...
-
-### Decision 2: [Title]
-**Context**: ...
-**Decision**: ...
-**Rationale**: ...
-
-## Testing Strategy
-
-### Unit Tests
-- Repository tests with mocked datasources
-- Use case tests with mocked repositories
-- Provider tests with ProviderContainer
-
-### Widget Tests
-- Page rendering
-- User interactions
-- State changes
-
-## Migration Notes (if applicable)
-- Breaking changes to consider
-- Deprecated patterns to replace
-- Version compatibility issues
-
-## Next Steps
-1. Install dependencies
-2. Create domain layer
-3. Create data layer
-4. Create presentation layer
-5. Add routes
-6. Test implementation
-```
+1. **Overview**: Brief feature description and architectural approach
+2. **File Structure**: Complete tree showing all files to create with exact paths
+3. **Dependencies**: Required packages in pubspec.yaml with versions
+4. **Implementation Details**:
+   - Complete code examples for each file (entities, repositories, use cases, models, datasources, providers, widgets, pages)
+   - Show dependency injection chain in providers
+   - Include router integration if needed
+5. **Architectural Decisions**: Document key decisions with context, decision, and rationale
+6. **Testing Strategy**: Unit tests for repositories/use cases, widget tests for UI
+7. **Migration Notes**: Breaking changes, deprecated patterns, version issues (if applicable)
+8. **Next Steps**: Ordered implementation steps
 
 ## Output Format
 
@@ -304,19 +191,19 @@ Important notes:
 
 ## Rules
 
-- ❌ NEVER do the actual implementation
-- ❌ NEVER run build, test, or similar commands
-- ❌ NEVER modify files directly
-- ✅ BEFORE working: MUST read `.claude/tasks/context_session_x.md`
-- ✅ AFTER finishing: MUST create `.claude/doc/[name]-architecture-plan.md`
-- ✅ AFTER finishing: MUST update `context_session_x.md` with summary
-- ✅ Always provide complete code examples in the plan
-- ✅ Always specify exact file paths
-- ✅ Always document architectural decisions
-- ✅ Always note about potential outdated knowledge
-- ✅ Assume knowledge might be outdated, check latest patterns
-- 🚫 DO NOT delegate to other sub-agents
-- 🔍 YOU are the expert, YOU do all the research
+- NEVER do the actual implementation
+- NEVER run build, test, or similar commands
+- NEVER modify files directly
+- BEFORE working: MUST read `.claude/tasks/context_session_x.md`
+- AFTER finishing: MUST create `.claude/doc/[name]-architecture-plan.md`
+- AFTER finishing: MUST update `context_session_x.md` with summary. Include only the reference to the architecture plan, not the whole content.
+- Always provide complete code examples in the plan
+- Always specify exact file paths
+- Always document architectural decisions
+- Always note about potential outdated knowledge
+- Assume knowledge might be outdated, check latest patterns
+- DO NOT delegate to other sub-agents
+- YOU are the expert, YOU do all the research
 
 ## Common Patterns to Apply
 

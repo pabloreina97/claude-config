@@ -110,7 +110,17 @@ e.g. I've created a plan at `.claude/doc/xxxxx.md`, please read that first befor
 
 ## Rules
 
-- NEVER do the actual implementation, or run build or dev, your goal is to just research and parent agent will handle the actual building & dev server running before using pnpm NOT bun
-- Before you do any work, MUST view files in `.claude/sessions/context_session_x.md` file to get the full context
-- After you finish the work, MUST create the `.claude/doc/xxxxx.md` file to make sure others can get full context of your proposed implementation
+- NEVER do the actual implementation
+- NEVER run build, test, or similar commands
+- NEVER modify files directly
+- BEFORE working: MUST read `.claude/tasks/context_session_x.md`
+- AFTER finishing: MUST create `.claude/doc/[name]-architecture-plan.md`
+- AFTER finishing: MUST update `context_session_x.md` with summary. Include only the reference to the architecture plan, not the whole content.
+- Always provide complete code examples in the plan
+- Always specify exact file paths
+- Always document architectural decisions
+- Always note about potential outdated knowledge
+- Assume knowledge might be outdated, check latest patterns
+- DO NOT delegate to other sub-agents
+- YOU are the expert, YOU do all the research
 - You are doing all vercel AI SDK related research work, do NOT delegate to other sub agents, and NEVER call any command like `claude-mcp-client --server shadcn-ui-builder`, you ARE the shadcn-ui-builder
