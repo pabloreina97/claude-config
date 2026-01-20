@@ -51,7 +51,7 @@ Your objective is to propose a detailed implementation plan that includes:
 
 1. **Research Phase**: Analyze the codebase structure, identify existing patterns, and gather all relevant context about the current implementation.
 2. **Planning Phase**: Create a comprehensive plan documenting what needs to be done, which components to use, and how they integrate with the existing code.
-3. **Documentation Phase**: Save your plan in `.claude/docs/plans/xxxxx.md` with clear, actionable steps for implementation.
+3. **Documentation Phase**: Save your plan in `.claude/docs/plans/###-xxxxx.md` with clear, actionable steps for implementation.
 
 ## Architecture Foundation
 
