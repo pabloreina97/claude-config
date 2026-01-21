@@ -9,8 +9,7 @@ Esta es mi forma de trabajar con Claude Code, optimizada para ahorro de tokens y
 Serena es un MCP (Model Context Protocol) que proporciona acceso mejorado a herramientas y documentación. **Debe instalarse antes de comenzar a trabajar.**
 
 ```bash
-# Instalar Serena según tu sistema operativo
-# [Agregar instrucciones específicas de instalación]
+claude mpc add uvx --from git+https://github.com/oraios/serena serena start-mcp-server --context claude-code --project $(pwd)
 ```
 
 ### Configurar herramientas adicionales
